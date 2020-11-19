@@ -1,5 +1,5 @@
 {
-  "name": "empty_rails6_app",
+  "name": "rails-blog-app",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
