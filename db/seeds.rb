@@ -17,12 +17,10 @@ Author.destroy_all
     User.create(name: Faker::Name.first_name, email: Faker::Internet.email)
 end
 
-5.times do
-    Author.create(name: Faker::Name.first_name)
-end
+Author.create(name: "Florent", email: "test@test.com", password: "myPassword")
 
 20.times do
-    Article.create(title: Faker::Lorem.word, contents: Faker::Lorem.paragraph_by_chars, author: Author.all.sample)
+    Article.create(title: Faker::Lorem.word, contents: Faker::Lorem.paragraph_by_chars, author: Author.first)
 end
 
 Category.create(name: "Blog")
