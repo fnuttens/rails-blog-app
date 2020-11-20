@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_admin!, only: [:create, :edit, :update, :destroy]
+  before_action :authenticate_author!, only: [:create, :edit, :update, :destroy]
   before_action :set_article, only: [:show, :update, :destroy]
 
   # GET /articles
@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :contents)
+    params.require(:article).permit(:title, :contents, :author, :categories)
   end
 
   def set_article
