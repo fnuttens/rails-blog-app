@@ -1,10 +1,36 @@
 <h1>Articles</h1>
 
-<ul>
+<div class="container">
+<div class="row">
 <% @articles.each do |article| %>
-    <li><%= link_to article.title, article_path(article) %></li>
+<div class="col-lg-3 mb-4">
+    <div class="card blog-card">
+        <div class="card-body">
+            <h5 class="post-title">
+                <%= link_to article.title, article_path(article) %>
+            </h5>
+            <p class="text-muted"><%= article.contents %></p>
+            <% article.categories.each do |category| %>
+                <a class="tag-link" href="#"><%= category.name %></a>
+            <% end %>
+        </div>
+        <div class="card-footer">
+            <a class="post-author" href="#">
+            <div class="post-author-avatar">
+                <img src="path-to-image" alt="Post Author"/>
+            </div>
+            <div class="post-author-name"><%= article.author.name %></div>
+            </a>
+                <div class="post-meta">
+            <a href="#"><i class="fe-icon-message-square"></i>21</a>
+            <span><i class="fe-icon-clock"></i><%= article.updated_at.to_formatted_s(:long) %></span>
+            </div>
+        </div>
+    </div>
+</div>
 <% end %>
-</ul>
+</div>
+</div>
 
 <div class="apple_pagination">
     <%= will_paginate @articles %>
