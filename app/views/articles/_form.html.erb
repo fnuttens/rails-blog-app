@@ -1,0 +1,14 @@
+<%= form_for article do |f| %>
+    <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control" %><br>
+
+        <%= f.label :contents %>
+        <%= f.text_area :contents, class: "form-control" %><br>
+
+        <%= f.label :category, for: "multiselect-input", class: "text-muted" %>
+        <%= f.select :category_ids, options_from_collection_for_select(Category.all, :id, :name, { :selected => article.categories.ids }), {}, { :multiple => true, :size => 4, :name => 'article[category_ids][]', class: 'form-control' } %>
+
+        <%= f.submit class: "btn btn-primary" %>
+    </div>
+<% end %>
