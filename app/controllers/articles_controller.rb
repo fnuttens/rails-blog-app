@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   def create
     @article = Article.new(article_params)
-
+    @article.author = current_author
     if @article.save
       flash[:notice] = "Your article has been successfully saved"
       redirect_to article_path(@article)
@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :contents, :author_id, :category_ids [])
+    params.require(:article).permit(:title, :contents, :author_id, :category_ids => [])
   end
 
   def set_article

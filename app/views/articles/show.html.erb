@@ -10,10 +10,12 @@
 
 <p><%= @article.contents %></p>
 
-<h3>Categories</h3>
+<% if @article.categories.all.length > 0 %>
+    <h3>Categories</h3>
 
-<ul>
-<% @article.categories.each do |category| %>
-    <li><%= category.name %></li>
+    <ul>
+    <% @article.categories.each do |category| %>
+        <li><%= category.name %></li>
+    <% end %>
+    </ul>
 <% end %>
-</ul>
