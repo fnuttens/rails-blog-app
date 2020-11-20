@@ -6,6 +6,10 @@
     </div>
 </div>
 
+<% if author_signed_in? %>
+    <%= link_to "Rename", edit_category_path(@category), class: "btn btn-primary" %>
+<% end %>
+
 <h3>Articles</h3>
 
 <ul>

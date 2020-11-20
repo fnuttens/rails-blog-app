@@ -4,6 +4,10 @@
     </div>
 </div>
 
+<% if author_signed_in? %>
+    <%= link_to "Add a category", new_category_path, class: "btn btn-primary" %>
+<% end %>
+
 <div class="container">
 <div class="row">
 <div class="card-deck">

@@ -4,6 +4,10 @@
     </div>
 </div>
 
+<% if author_signed_in? %>
+    <%= link_to "Write a new article", new_article_path, class: "btn btn-primary" %>
+<% end %>
+
 <div class="container">
 <div class="row">
 <% @articles.each do |article| %>
